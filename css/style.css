@@ -1,0 +1,302 @@
+@import url("./resetCSS.css");
+
+:root {
+  --key-size: 3.5vw;
+  --key-gap: 0.75vw;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 2% 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Nunito", sans-serif;
+  /* font-family: "Raleway", sans-serif; */
+  font-weight: 400;
+  color: #ffffff;
+  background-color: #484551;
+}
+#app {
+}
+
+.container {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.main-title {
+  margin: 0 0 2% 0;
+  font-size: 2vw;
+  font-weight: 600;
+  letter-spacing: calc(2vw / 21);
+  text-align: center;
+  color: #ff743c;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.subtitle {
+  font-size: 1.1vw;
+  line-height: 1.2;
+}
+/* ================================= */
+.keyboard-wrapper {
+  width: 80%;
+  padding: 1.65% 2.3%;
+  margin: 0 0 100px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 1px solid #3e3c46; */
+  border-radius: 16px;
+  background-color: #484551;
+  box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.3),
+    -4px -4px 10px 0 rgba(100, 94, 116, 0.5);
+}
+
+.display-text {
+  position: relative;
+  height: 25vh;
+  padding: 1.7%;
+  font-family: inherit;
+  font-size: 1.35vw;
+  font-weight: 300;
+  line-height: 1.25;
+  letter-spacing: calc(1.25vw / 25);
+  /* border-top: 2px solid #322f39; */
+  /* border-left: 2px solid #322f39; */
+  border-bottom: 2px inset #5a5569;
+  border-right: 2px inset #5a5569;
+  border-radius: 16px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  box-shadow: inset 2px 2px 5px 0 rgba(0, 0, 0, 0.25),
+    inset -2px -2px 5px 0 rgba(100, 94, 116, 0.5);
+}
+.display-text::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    115deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(255, 255, 255, 0.025)
+  );
+  pointer-events: none;
+}
+
+.keyboard {
+  position: relative;
+  min-width: 85%;
+  margin: 2% 0 0 0;
+  user-select: none;
+  /* border: 2px solid green; */
+}
+
+.keyboard__row {
+  margin: 0 0 var(--key-gap) 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: var(--key-gap);
+  text-transform: lowercase;
+}
+
+.keyboard__key {
+  width: var(--key-size);
+  height: var(--key-size);
+  padding: 0.7%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.15vw;
+  letter-spacing: calc(1.15vw / 15);
+  border: 1px solid #44424c;
+  /* border: 1px solid #19181a; */
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.3),
+    -3px -3px 6px 0 rgba(100, 94, 116, 0.55);
+  transition: all 0.15s;
+}
+
+.keyboard__key:hover,
+.keyboard__key.active {
+  border-color: #ff743c;
+  /* color: rgb(255, 90, 30); */
+  color: orangered;
+}
+
+.keyboard__key.active,
+.keyboard__key:active {
+  color: #37353e;
+  border: 1px inset #fc8f65;
+  /* background-color: #ff6022; */
+  /* border: 1px solid #ff743c; */
+  background-color: #ff743c;
+  box-shadow: inset 3px 3px 6px 0 rgba(0, 0, 0, 0.4),
+    inset -3px -3px 6px 0 rgba(255, 255, 255, 0.3);
+  /* inset -3px -3px 6px 0 rgba(100, 94, 116, 0.65); */
+  transition: all 0.15s;
+}
+
+.key--hotkey {
+  font-size: 0.9vw;
+  font-weight: 300;
+}
+/* ================================= */
+.key__indicator {
+  width: 0.35vw;
+  height: 0.35vw;
+  border-radius: 50%;
+  background-color: #f1f1f1;
+  transition: 0.2s;
+}
+.key__indicator.active {
+  background-color: #46ff39;
+  transition: 0.2s;
+}
+
+.key--arrow {
+  height: calc(var(--key-size) / 2);
+}
+
+.key--tab {
+  width: calc(var(--key-size) * 1.8);
+}
+
+.key--control,
+.key--option {
+  width: calc(var(--key-size) * 1.25);
+}
+
+.key--command {
+  width: calc(var(--key-size) * 1.7);
+}
+
+.key--capslock {
+  width: calc(var(--key-size) * 2.47);
+}
+
+.key--return {
+  width: calc(var(--key-size) * 2.75);
+}
+
+.key--backspace {
+  width: calc(var(--key-size) * 3);
+}
+
+.key--shift {
+  width: calc(var(--key-size) * 3.22);
+}
+
+.key--space {
+  width: calc(var(--key-size) * 6.92);
+}
+/* ================================= */
+.key--hotkey {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.key--tab,
+.key--capslock,
+.key--shift-left {
+  align-items: flex-start;
+}
+
+.key--return,
+.key--shift-right {
+  align-items: flex-end;
+}
+
+.key--del {
+  justify-content: center;
+  align-items: center;
+}
+
+.key--control .key__icon,
+.key--option-left .key__icon,
+.key--command-left .key__icon {
+  align-self: flex-end;
+}
+
+.key--option-right .key__icon,
+.key--command-right .key__icon {
+  align-self: flex-start;
+}
+
+.key--backspace {
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+/* ================================= */
+.arrows__row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: var(--key-gap);
+}
+
+.key--arrow {
+  font-size: 0.95vw;
+}
+
+.key--arrow-top {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: 1px solid #42404a;
+  box-shadow: 3px 0 6px 0 rgba(0, 0, 0, 0.25),
+    -3px -3px 6px 0 rgba(100, 94, 116, 0.5),
+    inset 0 -1px 3px 0 rgba(100, 94, 116, 0.5);
+}
+.key--arrow-bottom {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top: 1px solid #42404a;
+  box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.25),
+    -3px 0 6px 0 rgba(100, 94, 116, 0.5),
+    inset 0 3px 3px 0 rgba(100, 94, 116, 0.5);
+}
+/* ================================= */
+.keyboard__key .key__icon {
+  font-size: 1.2vw;
+}
+.key--backspace .key__icon {
+  font-size: 1.6vw;
+}
+/* ================================= */
+footer {
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #37353e;
+  /* background-color: #42404a; */
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(3px) brightness(200%);
+  -wekit-backdrop-filter: blur(3px);
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+  visibility: hidden;
+}
+
+.hint {
+  display: flex;
+  flex-direction: column;
+}
+/* ================================= */
