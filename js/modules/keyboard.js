@@ -30,8 +30,8 @@ class Keyboard {
 		const headerTitle = document.createElement("h1");
 		footer.innerHTML = `
             <div class="hint">
+            <h3 class="subtitle">This keyboard was created in MacOS</h3>
                 <h3 class="subtitle">Press control or option + command (alt + command) to switch language</h3>
-                <h3 class="subtitle">This keyboard was created in MacOS</h3>
             </div> 
         `;
 
