@@ -30,7 +30,6 @@ import KEYS_LAYOUT from "./modules/keys-layout.js";
 const keyboard = new Keyboard(KEYS_LAYOUT);
 
 window.addEventListener("DOMContentLoaded", function () {
-  keyboard.initPage();
-  keyboard.initKeyboard();
-  keyboard._createKeys();
+	keyboard.initPage();
+	keyboard.initKeyboard();
 });
